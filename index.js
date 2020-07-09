@@ -21,7 +21,7 @@ module.exports = (options = { transformInlineCode: true }) => tree => {
 }
 
 function highlight (node) {
-  let lang = node.lang.toLowerCase()
+  let lang = node.lang && node.lang.toLowerCase()
   let code = Prism.languages.hasOwnProperty(lang)
     ? Prism.highlight(node.value, Prism.languages[lang], lang)
     : node.value
